@@ -232,3 +232,77 @@ footer a.cgv {
     text-decoration: none;
     color: black;
 }
+.nav {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 1000;
+}
+/* Style global pour la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Style du prompt de mot de passe */
+.password-prompt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre transparent */
+    color: white;
+    text-align: center;
+}
+
+.password-prompt h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Style du champ de mot de passe */
+.password-prompt input[type="password"] {
+    padding: 12px;
+    margin: 10px 0;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Style du bouton d'accès */
+.password-prompt button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 320px; /* Assurer que le bouton est plus large que le champ */
+    margin-top: 10px;
+}
+
+.password-prompt button:hover {
+    background-color: #45a049;
+}
+
+/* Message d'erreur */
+#errorMessage {
+    color: red;
+    display: none;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* Style pour rendre l'input et le bouton plus accessibles et esthétiques */
+input[type="password"]:focus, button:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
