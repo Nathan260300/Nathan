@@ -3,107 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site personnel de Nathan, collégien passionné par le développement web. Découvrez mes projets, ma passion et contactez-moi.">
+    <meta name="author" content="Nathan">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="fr">
     <title>Nathan - Le Collégien</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js" defer></script>
 </head>
 <body>
-    <section class="top-page">
-        <header class="header">
-            <img src="images/logo.png" alt="Logo du site">
-            <nav class="nav">
-                <li><a href="index.html">Qui suis-je ?</a></li>
-                <li><a href="#">Qu'est ce que je fais ?</a></li>
-                <li><a href="#all-plants">Mes Projets</a></li>
-            </nav>
-        </header>
-        <div class="landing-page">
-            <h1 class="big-title">Nathan, le petit collégien</h1>
-            <a class="scroll-down" href="#services">Scroll <i class="fas fa-angle-down"></i></a>
-        </div>
-        
+
+    <div id="passwordPrompt" class="password-prompt">
+        <h2>Veuillez entrer le mot de passe pour accéder au site</h2>
+        <input type="password" id="password" placeholder="Mot de passe" onkeydown="checkEnter(event)">
+        <button onclick="checkPassword()">Accéder</button>
+        <p id="errorMessage" style="color: red; display: none;">Mot de passe incorrect !</p>
+        <p id="attemptsMessage" style="color: orange; display: none;">Il vous reste <span id="attemptsLeft">3</span> tentatives.</p>
+        <p id="waitMessage" style="color: red; display: none;">Trop de tentatives, veuillez patienter 30 secondes avant de réessayer.</p>
+    </div>
+
+    <section class="acceuil" id="siteContent" style="display: none;">
+        <section class="top-page">
+            <header class="header">
+                <img src="images/logo.png" alt="Logo de Nathan, le collégien passionné de développement web" class="logo">
+                <nav class="nav" role="navigation">
+                    <ul>
+                        <li><a href="#acceuil" aria-label="Retour à la page d'accueil">Accueil</a></li>
+                        <li><a href="#qui" aria-label="En savoir plus sur Nathan">Qui suis-je ?</a></li>
+                        <li><a href="#projets" aria-label="Voir mes projets de développement web">Mes Projets</a></li>
+                        <li><a href="#contact" aria-label="Contacter Nathan">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="landing-page">
+                <h1 class="big-title">Nathan, le petit collégien</h1>
+                <a class="scroll-down" href="#contact" aria-label="Descendre à la section Contact"><span class="sr-only">Descendez vers la section Contact</span><i class="fas fa-angle-down"></i></a>
+            </div>
+        </section>
+
+        <section class="qui" id="qui" role="region">
+            <h2 class="section-title">Qui suis-je ?</h2>
+            <p>Je suis Nathan, un collégien passionné par la technologie et le développement web. J'aime apprendre de nouvelles choses et créer des projets innovants.</p>
+        </section>    
+
+        <section class="projets" id="projets" role="region">
+            <h2 class="section-title">Mes projets</h2>
+            <div class="project-grid">
+                <div class="project-box">
+                    <h3>Mon premier site web</h3>
+                    <p>Un site que j'ai créé pour présenter mes passions et compétences. C'est un projet que j'ai réalisé pour apprendre le développement web.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" role="region">
+            <h2 class="section-title">Contact</h2>
+            <p>Tu peux me contacter par email à <a href="mailto:nathan162318@gmail.com" aria-label="Envoyer un email à Nathan"><i class="fas fa-envelope"></i> nathan162318@gmail.com</a></p>
+        </section>
+
+        <hr style="border-top: 2px solid #ccc; margin: 20px 0;">
+
+        <footer role="contentinfo">
+            <p>&copy; 2025 - Nathan</p>
+            <p>Suivez-moi sur 
+                <a href="https://www.youtube.com/channel/UCpj3xlWuE4y1ZroK3nMVLQw" target="_blank" rel="noopener noreferrer" aria-label="Visitez ma chaîne YouTube">YouTube</a>
+                et sur
+                <a href="https://github.com/nathan260300" target="_blank" rel="noopener noreferrer" aria-label="Visitez mon GitHub">GitHub</a>
+            </p>
+        </footer>    
     </section>
 
-    <section class="qui" id="qui">
-        <h2 class="section-title">
-            Qui suis-je ?
-        </h2>
-        <div class="best-plants">
-            <a class="plant-box plant1 no-grid">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">24,99€</p>
-                </div>
-            </a>
-            <a class="plant-box plant2 no-grid">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">14,99€</p>
-                </div>
-            </a>
-            <a class="plant-box plant3 no-grid">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">24,99€</p>
-                </div>
-            </a>
-            <a class="plant-box plant4 no-grid">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">29,99€</p>
-                </div>
-            </a>
-        </div>
-    </section> 
+    <script>
+        let attempts = 3;  
+        let lockTime = 0; 
 
-    <section class="all-plants" id="all-plants">
-        <h2 class="section-title">
-            Nos plantes
-        </h2>
-        <div class="plant-grid">
-            <a class="plant-grid1 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">17,99€</p>
-                </div>
-            </a>
-            <a class="plant-grid2 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">9,99€</p>
-                </div>
-            </a>
-            <a class="plant-grid3 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">44,99€</p>
-                </div>
-            </a>
-            <a class="plant-grid4 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">39,99€</p>
-                </div>
-            </a>
-            <a class="plant-grid5 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">17,99€</p>
-                </div>
-            </a>
-            <a class="plant-grid6 plant-box">
-                <div class="plant-details">
-                    <p class="plant-name">Plante</p>
-                    <p class="plant-price">24,99€</p>
-                </div>
-            </a>
-        </div>
-    </section> 
-    
-    <footer>
-        <p class="">&copy; 2025 - Nathan</p>
-        <a class="">Nathan - Le Collégien</a>
-    </footer>
+        function checkPassword() {
+            const correctPassword = "test";
+            const enteredPassword = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+            const siteContent = document.getElementById("siteContent");
+            const attemptsMessage = document.getElementById("attemptsMessage");
+            const waitMessage = document.getElementById("waitMessage");
+            const attemptsLeft = document.getElementById("attemptsLeft");
+
+            if (lockTime > 0) {
+                const currentTime = Math.floor(Date.now() / 1000);
+                if (currentTime < lockTime) {
+                    const secondsLeft = lockTime - currentTime;
+                    waitMessage.textContent = `Trop de tentatives, veuillez patienter ${secondsLeft} secondes avant de réessayer.`;
+                    waitMessage.style.display = "block";
+                    return;
+                } else {
+                    lockTime = 0; 
+                    attempts = 3; 
+                    attemptsMessage.style.display = "none";
+                    waitMessage.style.display = "none";
+                }
+            }
+
+            if (enteredPassword === correctPassword) {
+                document.getElementById("passwordPrompt").style.display = "none"; 
+                siteContent.style.display = "block"; 
+            } else {
+                attempts--;
+                if (attempts > 0) {
+                    errorMessage.style.display = "block";
+                    attemptsMessage.style.display = "block";
+                    attemptsLeft.textContent = attempts;
+                } else {
+                    lockTime = Math.floor(Date.now() / 1000) + 30;  
+                    errorMessage.style.display = "none";
+                    attemptsMessage.style.display = "none";
+                    waitMessage.style.display = "block";
+                }
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        }
+    </script>
 
 </body>
 </html>
