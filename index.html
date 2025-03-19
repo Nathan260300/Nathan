@@ -18,21 +18,24 @@
 <body>
 
     <div id="passwordPrompt" class="password-prompt">
-        <h2>Veuillez entrer le mot de passe pour accéder au site</h2>
-        <input type="password" id="password" placeholder="Mot de passe" onkeydown="checkEnter(event)">
-        <button onclick="checkPassword()">Accéder</button>
-        <p id="errorMessage" style="color: red; display: none;">Mot de passe incorrect !</p>
-        <p id="attemptsMessage" style="color: orange; display: none;">Il vous reste <span id="attemptsLeft">3</span> tentatives.</p>
-        <p id="waitMessage" style="color: red; display: none;">Trop de tentatives, veuillez patienter 30 secondes avant de réessayer.</p>
-    </div>
+        <h2>Veuillez entrer le mot de passe :</h2>
+        <input type="password" id="password" placeholder="Mot de passe">
+        <button id="submitPasswordButton">Valider</button>
+        <div id="errorMessage" style="display: none;">Mot de passe incorrect !</div>
+        <div id="attemptsMessage" style="display: none;">
+            Il vous reste <span id="attemptsLeft">3</span> tentatives.
+        </div>
+        <div id="successMessage" style="display: none;">Mot de passe correct !</div>
+        <div id="waitMessage" style="display: none;">Veuillez patienter <span id="timer">30</span> secondes avant de réessayer.</div>
+    </div>              
 
-    <section class="acceuil" id="siteContent" style="display: none;">
+    <section class="accueil" id="siteContent" style="display: none;">
         <section class="top-page">
             <header class="header">
                 <img src="images/logo.png" alt="Logo de Nathan, le collégien passionné de développement web" class="logo">
                 <nav class="nav" role="navigation">
                     <ul>
-                        <li><a href="#acceuil" aria-label="Retour à la page d'accueil">Accueil</a></li>
+                        <li><a href="#accueil" aria-label="Retour à la page d'accueil">Accueil</a></li>
                         <li><a href="#qui" aria-label="En savoir plus sur Nathan">Qui suis-je ?</a></li>
                         <li><a href="#projets" aria-label="Voir mes projets de développement web">Mes Projets</a></li>
                         <li><a href="#contact" aria-label="Contacter Nathan">Contact</a></li>
@@ -49,7 +52,7 @@
         <section class="qui" id="qui" role="region">
             <h2 class="section-title">Qui suis-je ?</h2>
             <p>Je suis Nathan, un collégien passionné par la technologie et le développement web. J'aime apprendre de nouvelles choses et créer des projets innovants.</p>
-        </section>    
+        </section>
 
         <section class="projets" id="projets" role="region">
             <h2 class="section-title">Mes projets</h2>
@@ -75,61 +78,10 @@
                 et sur
                 <a href="https://github.com/nathan260300" target="_blank" rel="noopener noreferrer" aria-label="Visitez mon GitHub">GitHub</a>
             </p>
-        </footer>    
+        </footer>
     </section>
 
-    <script>
-        let attempts = 3;  
-        let lockTime = 0; 
-
-        function checkPassword() {
-            const correctPassword = "unmotdepasse";
-            const enteredPassword = document.getElementById("password").value;
-            const errorMessage = document.getElementById("errorMessage");
-            const siteContent = document.getElementById("siteContent");
-            const attemptsMessage = document.getElementById("attemptsMessage");
-            const waitMessage = document.getElementById("waitMessage");
-            const attemptsLeft = document.getElementById("attemptsLeft");
-
-            if (lockTime > 0) {
-                const currentTime = Math.floor(Date.now() / 1000);
-                if (currentTime < lockTime) {
-                    const secondsLeft = lockTime - currentTime;
-                    waitMessage.textContent = `Trop de tentatives, veuillez patienter ${secondsLeft} secondes avant de réessayer.`;
-                    waitMessage.style.display = "block";
-                    return;
-                } else {
-                    lockTime = 0; 
-                    attempts = 3; 
-                    attemptsMessage.style.display = "none";
-                    waitMessage.style.display = "none";
-                }
-            }
-
-            if (enteredPassword === correctPassword) {
-                document.getElementById("passwordPrompt").style.display = "none"; 
-                siteContent.style.display = "block"; 
-            } else {
-                attempts--;
-                if (attempts > 0) {
-                    errorMessage.style.display = "block";
-                    attemptsMessage.style.display = "block";
-                    attemptsLeft.textContent = attempts;
-                } else {
-                    lockTime = Math.floor(Date.now() / 1000) + 30;  
-                    errorMessage.style.display = "none";
-                    attemptsMessage.style.display = "none";
-                    waitMessage.style.display = "block";
-                }
-            }
-        }
-
-        function checkEnter(event) {
-            if (event.key === "Enter") {
-                checkPassword();
-            }
-        }
-    </script>
+    <script src="js/mdp.js" defer></script>
 
 </body>
 </html>
