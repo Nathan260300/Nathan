@@ -9,10 +9,10 @@ const waitMessage = document.getElementById('waitMessage');
 const attemptsLeft = document.getElementById('attemptsLeft');
 const passwordPrompt = document.getElementById('passwordPrompt');
 const siteContent = document.getElementById('siteContent');
-const successMessage = document.getElementById('successMessage'); // Ajout du message de succès
+const successMessage = document.getElementById('successMessage'); 
 
 function checkPassword() {
-    const correctPassword = "unmotdepasse";
+    const correctPassword = "lemotdepasse";
     const enteredPassword = passwordField.value;
 
     if (lockTime > 0) {
